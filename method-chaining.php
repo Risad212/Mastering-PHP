@@ -1,6 +1,6 @@
 <?php
 
-// for use method chaining just return the paramitar from all method
+// for use method chaining just return the paramitar from all method except last on from where you want to chain the method
 
 class Chain
 {
