@@ -23,6 +23,12 @@ class B
     }
 }
 
+/*
+class C extends A,B{
+   
+}
+*/
+
 // ❌ This will cause an error because PHP does not support multiple inheritance.
 // class C extends A, B { } // ❌ ERROR: A class cannot extend multiple classes.
 
