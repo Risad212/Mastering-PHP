@@ -13,11 +13,11 @@
 // ❌ Violating OCP: Modifying Bird class for every new bird type
 class Bird
 {
-    public function getBird($name)
+    public function getBird(string $name)
     {
         if ($name == 'eagle') {
             echo "$name can fly\n";
-        } elseif ($name == 'penguin' || $name == 'cassowary') {
+        } elseif ($name == 'penguin') {
             echo "$name cannot fly\n";
         }
     }
@@ -31,46 +31,45 @@ class Bird
 
 interface CanFly
 {
-    public function fly($name);
+    public function fly(string $name);
 }
 
 interface CanEat
 {
-    public function eat($name);
+    public function eat(string $name);
 }
 
 // ✅ Open for extension: New birds can be added without modifying existing code.
 class Eagle implements CanFly, CanEat
 {
-    public function fly($name)
+    public function fly(string $name)
     {
         echo "$name can fly\n";
     }
 
-    public function eat($name)
+    public function eat(string $name)
     {
         echo "$name can eat\n";
     }
 }
 
-class Penguin implements CanEat
-{
-    public function eat($name)
-    {
-        echo "$name can eat\n";
-    }
-}
-
-// Usage Example
-echo "=== Open/Closed Principle Example ===\n";
 
 $eagle = new Eagle();
-$eagle->fly('Eagle');
+$eagle->fly('Eaggle');
 $eagle->eat('Eagle');
 
 echo "\n";
 
+
+class Penguin implements CanEat
+{
+    public function eat(string $name)
+    {
+        echo "$name can eat\n";
+    }
+}
+
 $penguin = new Penguin();
-$penguin->eat('Penguin');
+$penguin->eat(1);
 
 // ✅ Now, new birds can be added without modifying existing classes.
