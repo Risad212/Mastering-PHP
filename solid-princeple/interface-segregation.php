@@ -102,3 +102,14 @@ class RobotISP implements Runnable
 
 $robotISP = new RobotISP();
 $robotISP->canRun('Robot'); // ✅ Correct behavior
+
+// ------------------------------------------------------------
+
+// ✅ Benefits of Using the Interface Segregation Principle (ISP):
+/*
+ * - Ensures that classes only implement the methods they actually use.
+ * - Avoids forcing classes to depend on unused methods.
+ * - Makes code easier to maintain and extend.
+ * - Improves code readability and reduces unnecessary complexity.
+ * - Enhances flexibility by allowing independent development of related behaviors.
+ */
