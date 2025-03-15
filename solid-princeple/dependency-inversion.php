@@ -46,6 +46,7 @@ class ProjectManager
 $manager = new ProjectManager();
 $manager->manageTeam();
 
+echo "\n";
 
 /**
  * ✅ Correct Implementation of Dependency Inversion Principle (DIP) (Good Practice)
@@ -85,6 +86,14 @@ class QAEngineer implements TeamMember
     }
 }
 
+class Marketer implements TeamMember
+{
+    public function work(): void
+    {
+        echo "📢 Marketer is promoting\n";
+    }
+}
+
 // ProjectManager depends on abstraction (TeamMember) instead of concrete classes
 class DIPProjectManager
 {
@@ -114,6 +123,17 @@ $manager = new DIPProjectManager();
 $manager->addMember(new DIPDeveloper());
 $manager->addMember(new DIPDesigner());
 $manager->addMember(new QAEngineer());
+$manager->addMember(new Marketer());
 
 // Execute team tasks
 $manager->manageTeam();
+
+echo "\n";
+
+// ✅ Benefits of Using the Dependency Inversion Principle (DIP):
+/*
+ * - Reduces tight coupling between high-level modules (ProjectManager) and low-level modules (Developer, Designer, etc.).
+ * - Increases flexibility and scalability by allowing new roles without modifying the ProjectManager.
+ * - Makes unit testing easier by allowing dependencies to be replaced with mock objects.
+ * - Encourages writing reusable and maintainable code.
+ */
