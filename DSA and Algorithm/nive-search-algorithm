@@ -1,0 +1,31 @@
+function search($pat, $txt) {
+    $M = strlen($pat);
+    $N = strlen($txt);
+
+    // A loop to slide pat[] one by one
+    for ($i = 0; $i <= $N - $M; $i++) {
+        $j = 0;
+
+        // For current index i, check for pattern match
+        while ($j < $M && $txt[$i + $j] === $pat[$j]) {
+            $j++;
+        }
+
+        // If pattern matches at index i
+        if ($j == $M) {
+            echo "Pattern found at index $i\n";
+        }
+    }
+}
+
+// Example 1
+$txt1 = "AABAACAADAABAABA";
+$pat1 = "AABA";
+echo "Example 1:\n";
+search($pat1, $txt1);
+
+// Example 2
+$txt2 = "agd";
+$pat2 = "g";
+echo "\nExample 2:\n";
+search($pat2, $txt2);
