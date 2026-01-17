@@ -4,6 +4,7 @@
 
 // 1. Inheritance: A class can inherit only from a single class (single inheritance).
 // 2. Traits: A class can use multiple traits, allowing it to share functionality from multiple sources.
+// 3. 
 
 // Example of Inheritance Limitation:
 
@@ -61,5 +62,23 @@ $obj->sayA(); // Outputs: Hello world from TraitA
 echo '<br>';
 $obj->sayB(); // Outputs: Hello world from TraitB
 
+// in here logger trait inherit to Apptrait but for create and object need to inherit in displaylog class then use method log
+trait Logger {
+    public function log() {
+        echo "Hello";
+    }
+}
+
+trait AppTrait {
+    use Logger;
+}
+
+class displayLog {
+    use AppTrait;
+}
+$res = new displayLog;
+$res->log();
+
 
 // NOTE: a in trait you can receive multiple inheritence while in normal class you can not;
+// Question: one trait can inherit to another trait? Answer: yes but only can inherit can't create any object
