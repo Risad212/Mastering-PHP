@@ -1,14 +1,14 @@
 <?php
-$arr = [1, 2, 3, 1, 2, 4, 5,5,6];
 
-$unique = [];
-$count = []; // associative array to track number
+$arr = [1, 2, 3, 3, 4, 2, 1];
+$duplicates = []; 
 
-foreach($arr as $num){
-    if(!isset($count[$num])){
-        $count[$num] = true;
-        $unique[] = $num;
+for ($i = 0; $i < count($arr); $i++) {
+    for ($j = $i + 1; $j < count($arr); $j++) {
+       if ($arr[$i] == $arr[$j]) {
+            $duplicates[] = $arr[$i];
+        }
     }
 }
-print_r($unique);
-?>
+
+print_r($duplicates);
