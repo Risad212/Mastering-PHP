@@ -1,10 +1,23 @@
 <?php
 
-function sum($arr){
+function arr_sum($arr){
+  if (!is_array($arr)) return 0;
+
   $sum = 0;
-  for($i = 0; $i < count($arr); $i++){
-       $sum = $sum + $arr[$i];
+
+  foreach($arr as $value){
+    if (is_numeric($value)) {
+      $sum += $value;
+    }
   }
-  echo $sum;
+
+  echo $sum. ' ';
 }
-sum([1,2,3]);
+
+arr_sum([1,2,3]);          // 6 ✅
+arr_sum([-1,-2,-3]);       // -6 ✅
+arr_sum([10, -5, 5]);      // 10 ✅
+
+arr_sum([1,[2,3]]);     // 1 ✅
+arr_sum("123");         // 0 ✅
+arr_sum([1,true,null]); // 1 ✅
