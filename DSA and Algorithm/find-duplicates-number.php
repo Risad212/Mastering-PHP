@@ -1,6 +1,6 @@
 <?php
 
-// broute fource approce
+// brute force approce
 $arr = [1, 2, 3, 3, 4, 2, 1];
 $duplicates = []; 
 
@@ -14,7 +14,7 @@ for ($i = 0; $i < count($arr); $i++) {
 
 print_r($duplicates);
 
-// On Time complexity 
+// O(n) performance
 function findDuplicateNumber($arr) {
 
     $seen = [];
